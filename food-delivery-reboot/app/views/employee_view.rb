@@ -6,7 +6,7 @@ class EmployeeView
     end
 
     def ask_user_name
-        p "What meal do you want to add?"
+        p "What employee do you want to add?"
         gets.chomp
     end
 
@@ -16,7 +16,7 @@ class EmployeeView
     end
 
     def ask_user_for_employee
-        p "Choose a meal by the number"
+        p "Choose an employee by the number"
         gets.chomp.to_i - 1
     end
 end

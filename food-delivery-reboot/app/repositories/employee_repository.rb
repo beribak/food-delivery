@@ -1,3 +1,6 @@
+require "csv"
+require_relative "../models/employee"
+
 class EmployeeRepository
 
     def initialize(csv_file)
@@ -13,6 +16,7 @@ class EmployeeRepository
     def all
         @employees
     end
+
     def all_delivery_guys
         array = @employees.select{|employee| employee.role == "delivery_guy"}
         array
@@ -35,7 +39,6 @@ class EmployeeRepository
             row[:id] = row[:id].to_i
             @employees << Employee.new(row) 
         end
-
         @next_id = @employees.last.id + 1 if @employees.count > 0            
     end
 

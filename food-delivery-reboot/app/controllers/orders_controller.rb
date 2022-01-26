@@ -34,14 +34,13 @@ class OrdersController
         @order_view.display(list_orders)
     end
 
-
     def mark_as_delivered(employee)
-        p "What order do you want to mark as complete"
-        @order_view.display(@order_repository.all)
+        list_my_orders(employee)
         choice = gets.chomp.to_i - 1
-        order = @order_repository.all[choice]
+        order = @order_repository.undelivered_orders[choice]
         @order_repository.mark(order)
     end
+    
     private
 
     def meal_get

@@ -17,6 +17,7 @@ class OrderRepository
         order.deliver!
         save_csv
     end
+    
     def undelivered_orders
         array = @orders.select{|order| !order.delivered? }
     end
